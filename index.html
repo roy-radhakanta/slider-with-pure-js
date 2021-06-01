@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Slider</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 
+    Objectives
+        1. PHP / dynamic 
+        2. We do not need any image to be present in container / image or item with active class to visible first
+        3. Reuseable
+        4. With pure js / css
+        5. No other library
+        6. No Need to know JS 
+    -->
+<div class="container">
+    <section class="sliderx h-100vh flex align-items-center">
+        <div class="sliderx__container">
+            <div class="sliderx__img-container">
+                <img src="images/sliderx-1.jpg" alt="">
+                <img src="images/sliderx-2.jpg" alt="">
+                <img src="images/sliderx-3.jpg" alt="">
+                <img src="images/sliderx-4.jpg" alt="">
+            </div>
+            <div class="sliderx__nav">
+                <div class="sliderx__nav--next">
+                    <span class="prev__arrow">
+                        &#8594;
+                    </span>
+                </div>
+                <div class="sliderx__nav--preview">
+                    <span class="next__arrow">
+                        &#8592;
+                    </span>
+                </div>
+            </div>
+            <div class="sliderx__indicator">
+                <div class="sliderx__indicator--1"></div>   
+                <div class="sliderx__indicator--1"></div>   
+                <div class="sliderx__indicator--1"></div>   
+            </div>
+        </div>
+    </section>
+</div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

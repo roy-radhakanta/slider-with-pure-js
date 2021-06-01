@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root{
+    --font-family: 'Roboto', sans-serif;
+    --nav-button-color:;
+    --nav-button-container-color: ;
+    --nav-indicator:;
+    --nav-image-max-width: 100%;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-family);
+}
+
+.container {
+    max-width: 100%;
+    width: 114rem;
+    height: 100vh;
+}
+
+  /* _____ FLEX / ALL POSITONS _____ */
+.flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+  /* _____ FLEX / ALL POSITONS _____ */
+
+.w-50{
+    width:50%; padding: 0 15px;
+}
+
+.h-100vh{
+    height: 100vh;
+}
+
+/* ----------------------------------------------- */
+
+.sliderx__img-container > img{
+    max-width: var(--nav-image-max-width);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.sliderx__container{
+    width: 70%;
+    margin: auto;
+    height:500px;
+    overflow: hidden;
+    padding: 1%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px gainsboro;
+    position: relative;
+}
+
+.sliderx__nav{
+    position: absolute;
+    top:50%;
+    left: 0;
+    width:100%;
+}
+
+.sliderx__nav--next, 
+.sliderx__nav--preview {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 13.5px );
+-webkit-backdrop-filter: blur( 13.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+	border-radius: 50%;
+	color: #ffffffc7;   
+	cursor: pointer;
+	font-weight: 900;
+	font-size: 26px;
+    transition: all .5s ease-in-out;
+    display:none;
+}
+.sliderx__nav--next{
+    right: 2%;
+}
+.sliderx__nav--preview{
+    left: 2%;
+}
+
+.sliderx__nav--next:hover,
+.sliderx__nav--preview:hover{
+    transform: scale(1.05);
+}
+
+.sliderx__container:hover .sliderx__nav--next{
+    display: flex;
+    animation: rightIn .5s ease-in-out;
+}
+.sliderx__container:hover .sliderx__nav--preview{
+    display: flex;
+    animation: leftIn .5s ease-in-out;
+}
+
+
+
+
+/* @keyframes */
+@keyframes rightIn {
+    0%{
+        right: 10%;
+        opacity: 0;
+    }
+    100%{
+        right: 2%;
+        opacity: 1;
+    }
+}
+@keyframes leftIn {
+    0%{
+        left: 10%;
+        opacity: 0;
+    }
+    100%{
+        left: 2%;
+        opacity: 1;
+    }
+}
