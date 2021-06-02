@@ -12,7 +12,7 @@
     <!-- 
     Objectives
         1. PHP / dynamic 
-        2. We do not need any image to be present in container / image or item with active class to visible first
+        2. no need any image to be present in container / image or item with active class to visible first
         3. Reuseable
         4. With pure js / css
         5. No other library
@@ -22,27 +22,27 @@
     <section class="sliderx h-100vh flex align-items-center">
         <div class="sliderx__container">
             <div class="sliderx__img-container">
-                <img src="images/sliderx-1.jpg" alt="">
-                <img src="images/sliderx-2.jpg" alt="">
-                <img src="images/sliderx-3.jpg" alt="">
-                <img src="images/sliderx-4.jpg" alt="">
+                <img src="images/sliderx-1.jpg" class="sliderx__img" alt="">
+                <img src="images/sliderx-2.jpg" class="sliderx__img" alt="">
+                <img src="images/sliderx-3.jpg" class="sliderx__img" alt="">
+                <img src="images/sliderx-4.jpg" class="sliderx__img" alt="">
             </div>
             <div class="sliderx__nav">
                 <div class="sliderx__nav--next">
-                    <span class="prev__arrow">
+                    <span class="next__arrow">
                         &#8594;
                     </span>
                 </div>
                 <div class="sliderx__nav--preview">
-                    <span class="next__arrow">
+                    <span class="prev__arrow">
                         &#8592;
                     </span>
                 </div>
             </div>
             <div class="sliderx__indicator">
-                <div class="sliderx__indicator--1"></div>   
-                <div class="sliderx__indicator--1"></div>   
-                <div class="sliderx__indicator--1"></div>   
+                <div class="sliderx__indicator--dot sliderx__indicator--1"></div>   
+                <div class="sliderx__indicator--dot sliderx__indicator--2"></div>   
+                <div class="sliderx__indicator--dot sliderx__indicator--3"></div>   
             </div>
         </div>
     </section>
