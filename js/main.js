@@ -31,25 +31,24 @@ var uiController = (function(){
 })();
 
 var globalController = (function(uiCtrl){
-    var i = 0;
-    var doms = uiCtrl.selectors();
-    var images = uiCtrl.allElement();
-    var lengthx = uiCtrl.sliderLength(images.sliderxImg);
+    var doms, counter, allImages, firstImage, imageSize ;
+    doms = uiCtrl.selectors();
+    counter = 0;
+    allImages = uiCtrl.allElement();
+    firstImage = allImages.sliderxImg[0];
+    imageSize = firstImage.clientWidth;
 
-    var showNext = function(){
-        i++;
-        if(i > lengthx - 1){
-            console.log('stop');
-            i = 0;
-        }else{
-            console.log(i);
-            
-        }
+    var showNextimg = function(){
+        
+            current.style.transition = 'transform 0.4s ease-in-out';
+            counter++;
+            current.style.transform = 'translateX(' + (-imageSize) + 'px)';
+        
     };
-    
 
-    // console.log(images.sliderxImg[0].classList.add("active"));
+    document.querySelector(doms.arrowNext).addEventListener('click', showNextimg);
+   
+       
     
-    document.querySelector(doms.arrowNext).addEventListener('click', showNext);
     
 })(uiController);
