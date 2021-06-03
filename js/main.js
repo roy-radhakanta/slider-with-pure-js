@@ -1,4 +1,6 @@
-
+// Author : Radhakanta Roy
+// LinkedIn: https://www.linkedin.com/in/radha-kanta-82bb521b6
+// Twitter: @RadhakantaRoy9
 
 var uiController = (function(){
 
