@@ -53,7 +53,9 @@ body{
 
 .sliderx__img-container > img{
     max-width: var(--nav-image-max-width);
+    height: 100%;
     border-radius: 5px;
+    position: relative;
 }
 .sliderx__img-container{
     display: flex;

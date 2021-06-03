@@ -2,7 +2,7 @@
 
 var uiController = (function(){
 
-    var allSelectors, sliderxContainer, sliderxImgConiner, sliderxImg, slidexNavNext, sliderxNavPrev, sliderxIndicator, arrowNext, arrowPreview ;
+    var allSelectors;
 
     allSelectors = {
         sliderxCont: '.sliderx__container',
@@ -11,44 +11,72 @@ var uiController = (function(){
         sliderIndicCont: '.sliderx__indicator',
         allImages: '.sliderx__img',
         arrowNext: '.sliderx__nav--next',
-        arrowPreview: '.prev__arrow'
+        arrowPreview: '.sliderx__nav--preview'
     };
-    
+
     return {
-        allElement: function(){
+        allImgElement: function(){
             return {
-                sliderxImg: document.querySelectorAll(allSelectors.allImages)   
+                sliderxImages: document.querySelectorAll(allSelectors.allImages)   
             };           
         },
-        
         selectors: function(){
             return allSelectors;
         },
-        sliderLength: function(components){
+        noOfImage: function(components){
             return components.length;
         }
     };    
 })();
 
 var globalController = (function(uiCtrl){
-    var doms, counter, allImages, firstImage, imageSize ;
-    doms = uiCtrl.selectors();
-    counter = 0;
-    allImages = uiCtrl.allElement();
-    firstImage = allImages.sliderxImg[0];
-    imageSize = firstImage.clientWidth;
+    var doms, allImages, showNext, showPrev, counter, currentImgWdth, noElem, imgContina;
 
-    var showNextimg = function(){
-        
-            current.style.transition = 'transform 0.4s ease-in-out';
-            counter++;
-            current.style.transform = 'translateX(' + (-imageSize) + 'px)';
-        
+    counter = 0;
+    doms = uiCtrl.selectors();
+    allImages = uiCtrl.allImgElement();
+    noElem = uiCtrl.noOfImage(allImages.sliderxImages);
+    imgContina = document.querySelector(doms.imgCont);
+
+    showNext = function(){
+        counter++;
+        if (counter <=  noElem - 1) {
+            imgContina.style.transition = 'transform 0.8s ease-in-out';
+            currentImgWdth = allImages.sliderxImages[counter].clientWidth;
+            imgContina.style.transform = 'translateX(-' + currentImgWdth * counter  + 'px)';
+        }
+        if(counter > noElem - 1){
+            counter = 0;
+            currentImgWdth = allImages.sliderxImages[counter].clientWidth;
+            imgContina.style.transform = 'translateX(-' + currentImgWdth * counter  + 'px)';
+        }
     };
 
-    document.querySelector(doms.arrowNext).addEventListener('click', showNextimg);
-   
-       
+    showPrev = function(){
+        counter--;
+        if (counter >=  0) {
+            imgContina.style.transition = 'transform 0.8s ease-in-out';
+            currentImgWdth = allImages.sliderxImages[counter].clientWidth;
+            imgContina.style.transform = 'translateX(-' + currentImgWdth * counter  + 'px)';
+        }
+        if(counter < 0){
+            counter = 0;
+            currentImgWdth = allImages.sliderxImages[counter].clientWidth;
+            imgContina.style.transform = 'translateX(-' + currentImgWdth * counter  + 'px)';
+        }
+    };
     
-    
+ var controlEvents = function(){
+    document.querySelector(doms.arrowNext).addEventListener('click', showNext);
+    document.querySelector(doms.arrowPreview).addEventListener('click', showPrev);
+}
+
+return {
+    init: function(){
+        return controlEvents();
+    }
+};
+
 })(uiController);
+
+globalController.init();
